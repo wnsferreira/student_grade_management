@@ -8,8 +8,8 @@ public class Program {
 	private static String[] nomes;
 	private static double[] notaAv1;
 	private static double[] notaAv2;
-	private static double[] notaFinal;
-	private static double[] notasTurma;
+//	private static double[] notaFinal;
+//	private static double[] notasTurma;
 		
 	private static final int QTDE = 5;
 	
@@ -22,8 +22,8 @@ public class Program {
 		nomes = new String[QTDE];
 		notaAv1 = new double[QTDE];
 		notaAv2 = new double[QTDE];
-		notaFinal = new double[QTDE];
-		notasTurma = new double[QTDE];
+//		notaFinal = new double[QTDE];
+//		notasTurma = new double[QTDE];
 				
 		String opcao = null;		
 		
@@ -40,6 +40,7 @@ public class Program {
 			
 			case "1": 
 				if(index < QTDE) {
+					System.out.println(" ");
 					System.out.println("---------Registro--------");
 					System.out.println("Informe o seu nome: ");
 					nomes[index] = sc.next();
@@ -61,6 +62,7 @@ public class Program {
 				}
 				
 			case "2":
+				System.out.println(" ");
 				System.out.println("-------Consulta-------");
 				System.out.println("Informe a posição: ");
 				int pos = sc.nextInt();
@@ -71,14 +73,23 @@ public class Program {
 					System.out.println("Posição inválida!");
 				}
 				
+				situacaoAluno(pos);
+				
 				break;
 				
 			case "3":
-				System.out.println("Notas da turma: ");
+				System.out.println(" ");
+				System.out.println("----Notas da turma----: ");
+				exibirRelatorio();
 				imprimir();
 				
 				break;
+
+			case "4":
+				System.out.println("Sistema finalizado");
 				
+				break;
+								
 			default:
 				System.out.println("Opção inválida");
 			}
@@ -89,7 +100,7 @@ public class Program {
 	}
 	
 	private static void imprimir() {
-		System.out.println("Lista de alunos: ");
+		System.out.println(" ");
 		for (int i=0; i < index; i++) {
 			imprimir(i);			
 		}
@@ -97,38 +108,55 @@ public class Program {
 	}
 	
 	private static void imprimir(int posicao) {
-		System.out.printf("Posição: [%d]\n Aluno: %s\n Av1: %.2f\n Av2: %.2f\n Média final: %.2f\n Situação: %s\n", 
+		System.out.printf("Posição: [%d]\n Aluno: %s\n Av1: %.2f\n Av2: %.2f\n Media: %.2f\n", 
 				posicao+1, 
 				nomes[posicao],
 				notaAv1[posicao],
 				notaAv2[posicao],
-				calcularMedia(posicao),
-				situacao(posicao)
+				calcularMediaAluno(posicao)
 			);
 		
-		
+		situacaoAluno(posicao);
 		System.out.println(" ");
 	}
 	
-	private static double calcularMedia(int idx) {
+	private static void exibirRelatorio() {
+		int qtde = index;
+		int alunosCadastrados = qtde;
+		
+		System.out.println("Quantidade de alunos: " + alunosCadastrados);
+		System.out.printf("Média da turma: %.2f\n" ,calcularMediaTurma());
+		System.out.println(" ");
+	}
+	
+	private static double calcularMediaAluno(int idx) {
 		return (notaAv1[idx] + notaAv2[idx]) / 2;
+		
 	}
 	
-	private static String situacao(double sl) {
-		return (sl < 4) ? "reprovado" || (s1 >= 4) ? "Prova Final" : "aprovado";
+	private static double calcularMediaTurma() {
+		double soma = 0;
+		
+		for(int i = 0; i < index; i++) {
+			soma = soma + calcularMediaAluno(i);
+		}
+		
+		return soma / index;
 	}
 	
-//	private static void resultado(int p) {
-//		if(calcularMedia(p) < 4) {
-//			System.out.println("Reprovado");
-//		}
-//		else if(calcularMedia(p) >= 4 ||calcularMedia(p) < 7 ){
-//			System.out.println(" Prova final");
-//		}
-//		else if(calcularMedia(p) >= 7) {
-//			System.out.println("Aprovado");
-//		}
-//	}
+	private static void situacaoAluno(int idx) {
+		
+		double media = calcularMediaAluno(idx);
+		
+		if (media < 4) {
+			System.out.println("Reprovado");
+		}else if (media > 4 && media < 7) {
+			System.out.println("Prova final");
+		}else {
+			System.out.println("Aprovado");
+		}
+		
+	}
 }
 
 

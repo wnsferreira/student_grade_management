@@ -14,7 +14,7 @@ Implementar o uso de estruturas condicionais
 Implementar o uso de estruturas de repetição
 Implementar o uso de vetores
 
-Você deve construir um programa simples para o controle acadêmico de uma instituição de ensino.
+> Você deve construir um programa simples para o controle acadêmico de uma instituição de ensino.
 
 Ao ser iniciado, o programa deve exibir um menu com as seguintes opções:
 
