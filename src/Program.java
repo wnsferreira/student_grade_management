@@ -8,31 +8,37 @@ public class Program {
 	private static String[] nomes;
 	private static double[] notaAv1;
 	private static double[] notaAv2;
-//	private static double[] notaFinal;
-//	private static double[] notasTurma;
+
 		
-	private static final int QTDE = 5;
+	private static final int QTDE = 100;
 	
 	private static int index;	
 
 	public static void main(String[] args) {
+		
+		System.out.println("TP1 de Fundamentos do desenvolvimento Java");
+		System.out.println("Aluno: Wellington Nascimento");
+		System.out.println("Professor: Elberth Moraes");
+		System.out.println(" ");
+		System.out.println("SBCA - Sistema Básico de Controle Acadêmico");
+		System.out.println(" ");
 		
 		Locale.setDefault(Locale.US);
 		
 		nomes = new String[QTDE];
 		notaAv1 = new double[QTDE];
 		notaAv2 = new double[QTDE];
-//		notaFinal = new double[QTDE];
-//		notasTurma = new double[QTDE];
-				
+
 		String opcao = null;		
 		
 		do {
+			System.out.println("----------------Menu--------------");
 			System.out.println("[1] Registrar as notas de um aluno");
 			System.out.println("[2] Consultar boletim de um aluno");
 			System.out.println("[3] Consultar notas da turma");
 			System.out.println("[4] Sair");
 			
+			System.out.println(" ");
 			System.out.println("Informe a opção desejada: ");
 			opcao = sc.next();
 						
@@ -79,7 +85,7 @@ public class Program {
 				
 			case "3":
 				System.out.println(" ");
-				System.out.println("----Notas da turma----: ");
+				System.out.println("----Notas da turma---- ");
 				exibirRelatorio();
 				imprimir();
 				
@@ -115,7 +121,7 @@ public class Program {
 				notaAv2[posicao],
 				calcularMediaAluno(posicao)
 			);
-		
+		System.out.println("Situação: ");
 		situacaoAluno(posicao);
 		System.out.println(" ");
 	}
@@ -152,8 +158,10 @@ public class Program {
 			System.out.println("Reprovado");
 		}else if (media > 4 && media < 7) {
 			System.out.println("Prova final");
-		}else {
+		}else if (media > 7 && media < 10) {
 			System.out.println("Aprovado");
+		} else {
+			System.out.println("Informe uma nota válida entre 0 e 10");
 		}
 		
 	}
