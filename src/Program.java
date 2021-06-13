@@ -158,7 +158,7 @@ public class Program {
 			System.out.println("Reprovado");
 		}else if (media > 4 && media < 7) {
 			System.out.println("Prova final");
-		}else if (media > 7 && media < 10) {
+		}else if (media >= 7 && media <= 10) {
 			System.out.println("Aprovado");
 		} else {
 			System.out.println("Informe uma nota válida entre 0 e 10");
