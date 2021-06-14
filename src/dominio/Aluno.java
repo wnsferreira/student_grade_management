@@ -29,6 +29,13 @@ public class Aluno extends Pessoa {
 		//super.imprimir();
 	}
 	
+	@Override
+	public void exibirFormaCalculo() {
+		System.out.println("Média aluno = (Av1 + Av2) / 2");
+		System.out.println("= " + getNotaAv1() + " + " + getNotaAv2() + " / " + " 2 ");	
+		System.out.println("= " + calcularMediaAluno());
+	}
+	
 	public static double calcularMediaAluno() {
 		
 		return (notaAv1 + notaAv2) / 2;

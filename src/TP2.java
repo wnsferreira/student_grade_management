@@ -10,7 +10,6 @@ public class TP2 {
 	static Scanner sc = new Scanner(System.in);
 	
 		
-	//private static Pessoa[] pessoas;
 	private static Pessoa[] pessoas;
 			
 	private static final int QTDE = 100;
@@ -19,16 +18,15 @@ public class TP2 {
 
 	public static void main(String[] args) {
 		
-		System.out.println("TP2 de Fundamentos do desenvolvimento Java");
+		System.out.println("TP 2 e 3 de Fundamentos do desenvolvimento Java");
 		System.out.println("Aluno: Wellington Nascimento");
 		System.out.println("Professor: Elberth Moraes");
 		System.out.println(" ");
-		System.out.println("SBCA - Sistema Básico de Controle Acadêmico");
+		System.out.println("SBCA - Sistema BÃ¡sico de Controle AcadÃªmico");
 		System.out.println(" ");
 		
 		Locale.setDefault(Locale.US);
 						
-		//pessoas = new Pessoa[QTDE];
 		pessoas = new Pessoa[QTDE];
 		
 		String opcao = null;		
@@ -37,12 +35,13 @@ public class TP2 {
 			System.out.println("----------------Menu--------------");
 			System.out.println("[1] Cadastrar professor");
 			System.out.println("[2] Cadastrar aluno");
-			System.out.println("[3] Consultar situação de um docente/discente");
-			System.out.println("[4] Sair");
+			System.out.println("[3] Consultar situaÃ§Ã£o de um docente/discente");
+			System.out.println("[4] Exibir forma de cÃ¡lculo para aluno");
+			System.out.println("[9] Sair");
 		
 			
 			System.out.println(" ");
-			System.out.println("Informe a opção desejada: ");
+			System.out.println("Informe a opÃ§Ã£o desejada: ");
 			opcao = sc.next();
 						
 			switch (opcao) {
@@ -71,14 +70,14 @@ public class TP2 {
 					
 					pessoas[index] = prof;
 					
-					System.out.println("Informação cadastrada!");
+					System.out.println("InformaÃ§Ã£o cadastrada!");
 					System.out.println(" ");
 					pessoas[index].imprimir();
 					
 					index++;
 					break;
 				} else {
-					System.out.println("Todas as vagas já foram preenchidas!");
+					System.out.println("Todas as vagas jÃ¡ foram preenchidas!");
 				}
 			
 			case "2": 
@@ -100,14 +99,14 @@ public class TP2 {
 					
 					pessoas[index] = aluno;
 					
-					System.out.println("Informação cadastrada!");
+					System.out.println("InformaÃ§Ã£o cadastrada!");
 					System.out.println(" ");
 					pessoas[index].imprimir();
 					
 					index++;
 					break;
 				} else {
-					System.out.println("Todas as vagas já foram preenchidas!");
+					System.out.println("Todas as vagas jÃ¡ foram preenchidas!");
 				}
 			
 			case "3":
@@ -117,7 +116,7 @@ public class TP2 {
 				imprimir();
 				
 				System.out.println("------Info professores------");
-				System.out.println("Informe a posição: ");
+				System.out.println("Informe a posiÃ§Ã£o: ");
 				int pos = sc.nextInt();
 				
 				if(pos >= 0 && pos < index) {
@@ -127,14 +126,27 @@ public class TP2 {
 				}
 				
 				break;
-
+				
 			case "4":
+				System.out.println("------Forma de calculo------");
+				System.out.print("Informe a posicao: ");
+				pos = sc.nextInt();
+				
+				if(pos >= 0 && pos < index) {
+					pessoas[pos].exibirFormaCalculo();
+				} else {
+					System.out.println("Funcionï¿½rio inexistente!!!");
+				}
+				
+				break;
+
+			case "9":
 				System.out.println("Sistema finalizado");
 				
 				break;
 								
 			default:
-				System.out.println("Opção inválida");
+				System.out.println("OpÃ§Ã£o invÃ¡lida");
 			}
 			
 		} while (!opcao.equals("4"));
@@ -150,22 +162,6 @@ public class TP2 {
 		
 	}
 	
-//	private static void imprimir(int posicao) {
-//		
-//		Pessoa aluno = pessoas[posicao];
-//				
-//		System.out.printf("Posição: [%d]\n Aluno: %s\n Av1: %.2f\n Av2: %.2f\n Media: %.2f\n Aluno %s\n", 
-//				posicao+1, 
-//				aluno.getNome(),
-//				aluno.getNotaAv1(),
-//				aluno.getNotaAv2(),
-//				aluno.calcularMediaAluno(),
-//				aluno.getSituacao()
-//			);
-//		
-//	
-//		System.out.println(" ");
-//	}
 	
 	private static void exibirRelatorio() {
 			
@@ -175,7 +171,7 @@ public class TP2 {
 		//Aluno aluno = alunos[];
 		
 		System.out.println("Quantidade de alunos: " + alunosCadastrados);
-		//System.out.printf("Média da turma: %.2f\n" , alunos.calcularMediaTurma());
+		//System.out.printf("MÃ©dia da turma: %.2f\n" , alunos.calcularMediaTurma());
 		System.out.println(" ");
 	}
 	

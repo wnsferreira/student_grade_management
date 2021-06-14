@@ -13,7 +13,7 @@ public abstract class Pessoa {
 	
 	public void imprimir() {
 		
-		System.out.printf("Posição: [%d]\n  %s\n %s\n  %s\n  %s\n", 
+		System.out.printf("Posição: %d\n  %s\n  %s\n  %s\n  %s\n", 
 				0,//posicao+1, 
 				getNome(),
 				getSobrenome(),
@@ -22,6 +22,8 @@ public abstract class Pessoa {
 			);
 		
 	}
+	
+	public abstract void exibirFormaCalculo();
 	
 	public String getNome() {
 		return nome;

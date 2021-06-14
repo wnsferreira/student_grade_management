@@ -24,6 +24,12 @@ public class Professor extends Pessoa {
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
 	}
+
+	@Override
+	public void exibirFormaCalculo() {
+		System.out.println("Professor não tem cálculo implementado");
+		
+	}
 	
 	
 }
