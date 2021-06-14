@@ -4,25 +4,40 @@ package dominio;
 public abstract class Pessoa {
 	
 	private String nome;
+	private String sobrenome;
+	
+
 	private int idade;
 	private String email;
 	
 	
 	public void imprimir() {
 		
-		System.out.printf("Posição: [%d]\n  %s\n  %s\n  %s\n", 
+		System.out.printf("Posição: [%d]\n  %s\n %s\n  %s\n  %s\n", 
 				0,//posicao+1, 
 				getNome(),
+				getSobrenome(),
 				this.toString(),
 				getSituacao()
 			);
+		
 	}
 	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
+		
 		this.nome = nome;
+				
+	}
+	
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 	public int getIdade() {
 		return idade;

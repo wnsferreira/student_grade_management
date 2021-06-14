@@ -43,10 +43,6 @@ public class Aluno extends Pessoa {
 			
 		}
 		
-//		for(Alunos obj: alunos) {
-//			soma = soma + calcularMediaAluno();
-//		}
-		
 		return soma / index;
 	}
 	

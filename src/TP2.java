@@ -54,8 +54,11 @@ public class TP2 {
 					
 					System.out.println(" ");
 					System.out.println("---------Cadastro professor--------");
-					System.out.println("Informe o nome do professor: ");
+					System.out.println("Informe o nome e sobrenome: ");
 					prof.setNome(sc.next());
+					
+					System.out.println("Informe o sobrenome: ");
+					prof.setSobrenome(sc.next());					
 					
 					System.out.println("Informe a matricula: ");
 					prof.setMatricula(sc.nextInt());
@@ -70,7 +73,6 @@ public class TP2 {
 					
 					System.out.println("Informação cadastrada!");
 					System.out.println(" ");
-					//imprimir(index);
 					pessoas[index].imprimir();
 					
 					index++;
@@ -100,7 +102,6 @@ public class TP2 {
 					
 					System.out.println("Informação cadastrada!");
 					System.out.println(" ");
-					//imprimir(index);
 					pessoas[index].imprimir();
 					
 					index++;
@@ -114,7 +115,6 @@ public class TP2 {
 				System.out.println("----Notas da turma---- ");
 				exibirRelatorio();
 				imprimir();
-				//pessoas[index].imprimir();
 				
 				System.out.println("------Info professores------");
 				System.out.println("Informe a posição: ");
@@ -145,7 +145,6 @@ public class TP2 {
 	private static void imprimir() {
 		System.out.println(" ");
 		for (int i=0; i < index; i++) {
-			//imprimir(i);
 			pessoas[i].imprimir();
 		}
 		
