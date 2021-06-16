@@ -1,5 +1,7 @@
 package dominio;
 
+import exceptions.NomeIncompletoException;
+
 public class Aluno extends Pessoa {
 	
 	private int id_aluno;
@@ -17,7 +19,7 @@ public class Aluno extends Pessoa {
 	}
 	
 	@Override
-	public void imprimir() {
+	public void imprimir() throws NomeIncompletoException  {
 		double media = calcularMediaAluno();
 		System.out.println("Aluno: "+ this.getNome()
 		+ " | Av1: " + this.getNotaAv1() 

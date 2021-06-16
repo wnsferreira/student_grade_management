@@ -1,15 +1,16 @@
+
 import java.util.Locale;
 import java.util.Scanner;
 
 import dominio.Aluno;
 import dominio.Pessoa;
 import dominio.Professor;
+import exceptions.NomeIncompletoException;
 
 public class TP2 {
 	
 	static Scanner sc = new Scanner(System.in);
-	
-		
+			
 	private static Pessoa[] pessoas;
 			
 	private static final int QTDE = 100;
@@ -29,7 +30,7 @@ public class TP2 {
 						
 		pessoas = new Pessoa[QTDE];
 		
-		String opcao = null;		
+		String opcao = null;
 		
 		do {
 			System.out.println("----------------Menu--------------");
@@ -53,28 +54,37 @@ public class TP2 {
 					
 					System.out.println(" ");
 					System.out.println("---------Cadastro professor--------");
-					System.out.println("Informe o nome e sobrenome: ");
+					System.out.println("Informe o nome: ");
 					prof.setNome(sc.next());
 					
 					System.out.println("Informe o sobrenome: ");
-					prof.setSobrenome(sc.next());					
+					prof.setSobrenome(sc.next());	
 					
-					System.out.println("Informe a matricula: ");
-					prof.setMatricula(sc.nextInt());
-										
-					System.out.println("Informe a idade: ");
-					prof.setIdade(sc.nextInt());
+					System.out.println("Informe o último nome: ");
+					prof.setUltimoNome(sc.next());
 					
-					System.out.println("Informe a disciplina: ");
-					prof.setDisciplina(sc.next());
-					
+//					System.out.println("Informe a matricula: ");
+//					prof.setMatricula(sc.nextInt());
+//										
+//					System.out.println("Informe a idade: ");
+//					prof.setIdade(sc.nextInt());
+//					
+//					System.out.println("Informe a disciplina: ");
+//					prof.setDisciplina(sc.next());
+//					
 					pessoas[index] = prof;
 					
 					System.out.println("Informação cadastrada!");
 					System.out.println(" ");
-					pessoas[index].imprimir();
 					
+					try {
+						pessoas[index].imprimir();
+					} catch (NomeIncompletoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					index++;
+					
 					break;
 				} else {
 					System.out.println("Todas as vagas já foram preenchidas!");
@@ -101,9 +111,15 @@ public class TP2 {
 					
 					System.out.println("Informação cadastrada!");
 					System.out.println(" ");
-					pessoas[index].imprimir();
-					
+				
+					try {
+						pessoas[index].imprimir();
+					} catch (NomeIncompletoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					index++;
+					
 					break;
 				} else {
 					System.out.println("Todas as vagas já foram preenchidas!");
@@ -120,9 +136,12 @@ public class TP2 {
 				int pos = sc.nextInt();
 				
 				if(pos >= 0 && pos < index) {
-					pessoas[pos].imprimir();
-				} else {
-					System.out.println("Professor inexistente");
+					try {
+						pessoas[pos].imprimir();
+					} catch (NomeIncompletoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				
 				break;
@@ -141,23 +160,34 @@ public class TP2 {
 				break;
 
 			case "9":
-				System.out.println("Sistema finalizado");
+				System.out.println("Finalizando...");
 				
 				break;
 								
 			default:
 				System.out.println("Opção inválida");
+				
+				break;
 			}
 			
-		} while (!opcao.equals("4"));
-			
-		sc.close();				
+		} while (!opcao.equals("9"));
+		
+		//exibirRelatorio();
+		sc.close();
+	
 	}
+
+
 	
 	private static void imprimir() {
 		System.out.println(" ");
 		for (int i=0; i < index; i++) {
-			pessoas[i].imprimir();
+			try {
+				pessoas[i].imprimir();
+			} catch (NomeIncompletoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}
@@ -168,10 +198,10 @@ public class TP2 {
 		int qtde = index;
 		int alunosCadastrados = qtde;
 		
-		//Aluno aluno = alunos[];
+		Aluno aluno = new Aluno();
 		
 		System.out.println("Quantidade de alunos: " + alunosCadastrados);
-		//System.out.printf("Média da turma: %.2f\n" , alunos.calcularMediaTurma());
+		System.out.printf("Média da turma: %.2f\n" , aluno.calcularMediaTurma());
 		System.out.println(" ");
 	}
 	

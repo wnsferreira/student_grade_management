@@ -48,7 +48,7 @@ public class Instituicao {
 
 	public void setMensalidade(float mensalidade) throws MensalidadeNegativaException {
 		if(mensalidade < 0) {
-			throw new MensalidadeNegativaException("A mensalidade está negativa");
+			throw new MensalidadeNegativaException("O valor da mensalidade não pode ser negativo.");
 		}
 				
 		this.mensalidade = mensalidade;
